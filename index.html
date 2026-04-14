@@ -6,10 +6,10 @@
     <title>Acosys V8 Online | Solusi Cerdas Akuntansi Bisnis Anda</title>
     <meta name="description" content="Software akuntansi berbasis cloud untuk berbagai jenis bisnis yang membantu mengelola keuangan, stok, dan operasional bisnis secara efisien.">
     
-    <!-- Google Fonts: Inter for Modern SaaS Look -->
+    <!-- Google Fonts: Poppins for Modern SaaS Look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,7 +21,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Poppins', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -413,44 +413,44 @@
                     <button onclick="openModal('LITE')" class="w-full block text-center py-3 px-4 bg-blue-50 text-brand-600 font-bold rounded-xl hover:bg-brand-100 transition">Pilih Paket</button>
                 </div>
 
-                <!-- Paket BASIC -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col h-full relative">
-                    <h4 class="text-xl font-bold text-gray-900 mb-2">BASIC</h4>
+                <!-- Paket BASIC (HIGHLIGHTED) -->
+                <div class="bg-white rounded-2xl shadow-2xl border-2 border-brand-500 p-8 flex flex-col h-full relative transform lg:-translate-y-4 z-10">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-500 text-white px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase shadow-md flex items-center gap-1">
+                        <i class="fa-solid fa-star"></i> Paling Populer
+                    </div>
+                    <h4 class="text-2xl font-black text-brand-600 mb-2">BASIC</h4>
                     <p class="text-sm text-gray-500 mb-6 border-b pb-6">Toko retail yang mulai berkembang</p>
                     <div class="mb-6">
                         <span class="text-4xl font-extrabold text-gray-900">Rp199</span><span class="text-gray-500">.000</span>
                         <span class="text-gray-500 text-sm">/bulan</span>
                     </div>
                     <ul class="space-y-4 mb-8 flex-1">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">3 User Akses</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Multi Gudang</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Hutang & Piutang</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Laporan Akuntansi Dasar</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Support Prioritas</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">3 User Akses</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Multi Gudang</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Hutang & Piutang</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Laporan Akuntansi Dasar</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Support Prioritas</span></li>
                     </ul>
-                    <button onclick="openModal('BASIC')" class="w-full block text-center py-3 px-4 bg-blue-50 text-brand-600 font-bold rounded-xl hover:bg-brand-100 transition">Pilih Paket</button>
+                    <button onclick="openModal('BASIC')" class="w-full block text-center py-4 px-4 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">Pilih Paket BASIC</button>
                 </div>
 
-                <!-- Paket PRO (HIGHLIGHTED) -->
-                <div class="bg-white rounded-2xl shadow-2xl border-2 border-brand-500 p-8 flex flex-col h-full relative transform lg:-translate-y-4 z-10">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-500 text-white px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase shadow-md flex items-center gap-1">
-                        <i class="fa-solid fa-star"></i> Paling Populer
-                    </div>
-                    <h4 class="text-2xl font-black text-brand-600 mb-2">PRO</h4>
+                <!-- Paket PRO -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col h-full relative">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">PRO</h4>
                     <p class="text-sm text-gray-500 mb-6 border-b pb-6">Solusi lengkap untuk perusahaan menengah</p>
                     <div class="mb-6">
                         <span class="text-4xl font-extrabold text-gray-900">Rp399</span><span class="text-gray-500">.000</span>
                         <span class="text-gray-500 text-sm">/bulan</span>
                     </div>
                     <ul class="space-y-4 mb-8 flex-1">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Unlimited User Akses</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Multi Cabang & Gudang</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Full Accounting System</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Modul Salesman & Komisi</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">Analisa Data & Dashboard</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i><span class="text-gray-800 font-medium text-sm">VIP Support 24/7</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Unlimited User Akses</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Multi Cabang & Gudang</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Full Accounting System</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Modul Salesman & Komisi</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">Analisa Data & Dashboard</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i><span class="text-gray-600 text-sm">VIP Support 24/7</span></li>
                     </ul>
-                    <button onclick="openModal('PRO')" class="w-full block text-center py-4 px-4 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">Pilih Paket PRO</button>
+                    <button onclick="openModal('PRO')" class="w-full block text-center py-3 px-4 bg-blue-50 text-brand-600 font-bold rounded-xl hover:bg-brand-100 transition">Pilih Paket</button>
                 </div>
 
                 <!-- Paket EXPERT -->
@@ -751,12 +751,46 @@
             // Merangkai template pesan otomatis
             const message = `Halo Tim Acosys,\n\nSaya tertarik untuk konsultasi dan berlangganan *Acosys V8 Online Paket ${selectedPackage}*.\n\nBerikut adalah data bisnis saya:\n- *Nama Lengkap:* ${name}\n- *Nama Bisnis:* ${business}\n- *Bidang Usaha:* ${type}\n\nMohon informasi mengenai langkah selanjutnya untuk pendaftaran akun.\n\nTerima kasih.`;
 
-            // Buka link WhatsApp
-            const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
-            window.open(waUrl, '_blank');
+            // ===== KONFIGURASI GOOGLE SPREADSHEET =====
+            // Ganti URL di bawah ini dengan URL hasil deploy Apps Script Anda
+            const scriptURL = 'MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DISINI'; 
             
-            // Tutup modal
-            closeModal();
+            const formData = new FormData();
+            formData.append('paket', selectedPackage);
+            formData.append('nama', name);
+            formData.append('bisnis', business);
+            formData.append('tipe', type);
+            formData.append('waktu', new Date().toLocaleString('id-ID'));
+
+            // Tampilkan status loading pada tombol
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan data...';
+            submitBtn.disabled = true;
+
+            // Mengirim data menggunakan Fetch API (tanpa redirect browser)
+            fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+                .then(response => {
+                    // Setelah data berhasil terkirim ke Sheet, buka WhatsApp
+                    const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
+                    window.open(waUrl, '_blank');
+                    
+                    // Kembalikan form seperti semula
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    closeModal();
+                    event.target.reset(); 
+                })
+                .catch(error => {
+                    console.error('Error saat menyimpan ke sheet!', error.message);
+                    // Fallback: Jika gagal menyimpan ke sheet, tetap izinkan user buka WhatsApp
+                    const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
+                    window.open(waUrl, '_blank');
+                    
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    closeModal();
+                });
         }
     </script>
 </body>
