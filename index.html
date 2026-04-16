@@ -98,6 +98,7 @@
                     src="acosys.png" 
                     alt="Logo Acosys V8"
                     class="h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-lg hover:scale-105 transition duration-300"
+                    onerror="this.style.display='none'"
                 >
             </div>
 
@@ -215,7 +216,7 @@
             <!-- Pricing Grid (4 Columns) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start reveal">
                 
-                <!-- 1. Paket LITE (Paling Populer) -->
+                <!-- 1. Paket LITE (Paling Populer - SATU-SATUNYA YANG PAKAI BADGE) -->
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-2xl border-2 border-brand-500 transform md:-translate-y-4 relative z-10 flex flex-col h-full">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-accent-400 to-accent-500 text-navy-900 px-6 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg flex items-center gap-2 whitespace-nowrap">
                         <i class="fa-solid fa-star animate-pulse"></i> Paling Populer
@@ -244,7 +245,7 @@
                     </button>
                 </div>
 
-                <!-- 2. Paket BASIC -->
+                <!-- 2. Paket BASIC (TIDAK ADA BADGE) -->
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
                     <div class="text-center mb-6 border-b border-gray-100 pb-6">
                         <h4 class="text-xl font-bold text-gray-900 mb-1">BASIC</h4>
@@ -271,7 +272,7 @@
                     </button>
                 </div>
 
-                <!-- 3. Paket PRO -->
+                <!-- 3. Paket PRO (TIDAK ADA BADGE) -->
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
                     <div class="text-center mb-6 border-b border-gray-100 pb-6">
                         <h4 class="text-xl font-bold text-gray-900 mb-1">PRO</h4>
@@ -358,6 +359,7 @@
                     src="acosys.png" 
                     alt="Logo Acosys"
                     class="h-10 w-auto object-contain opacity-75 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0"
+                    onerror="this.style.display='none'"
                 >
             </div>
             <p class="mb-4">Solusi Cerdas Manajemen Bisnis & Keuangan Era Digital.</p>
@@ -788,6 +790,30 @@
                     btnKonfirm.disabled = false;
                 });
         }
+
+        // --- MENGGUNAKAN INTERSECTION OBSERVER AGAR ANIMASI STABIL ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal");
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1 // Animasi muncul saat 10% elemen masuk layar
+            };
+
+            const revealObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        // observer.unobserve(entry.target); // Hapus komentar ini jika ingin animasi hanya 1x jalan
+                    }
+                });
+            }, observerOptions);
+
+            reveals.forEach(function(reveal) {
+                revealObserver.observe(reveal);
+            });
+        });
     </script>
 </body>
 </html>
