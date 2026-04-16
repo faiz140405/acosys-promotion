@@ -43,12 +43,12 @@
         }
     </script>
     <style>
-        .float-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .float-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .float-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .float-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04); }
         .pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         
         /* Utility for Scroll Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -91,7 +91,7 @@
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 px-4 sm:px-0">
-                <button onclick="openModal('BASIC')" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                <button onclick="openModal('PRO')" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
                     Mulai Sekarang <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
@@ -141,35 +141,43 @@
         <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
             <div class="bg-brand-600 p-5 text-white flex justify-between items-center sticky top-0 z-10">
                 <h3 class="font-semibold text-lg">Pesan Paket <span id="package-name-display" class="text-yellow-300 font-bold"></span></h3>
-                <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition">
+                <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition" aria-label="Tutup Form">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             <div class="p-6">
+                <p class="text-gray-500 text-sm mb-6">Isi form di bawah ini agar tim kami bisa segera membantu proses setup akun Anda.</p>
                 <form id="order-form" onsubmit="submitOrder(event)" class="space-y-5">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap</label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" id="customer-name" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
+                            <input type="text" id="customer-name" placeholder="Misal: Budi Santoso" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Bisnis</label>
                         <div class="relative">
                             <i class="fa-solid fa-store absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" id="business-name" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
+                            <input type="text" id="business-name" placeholder="Misal: Maju Jaya Grosir" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-green-500/30 transition flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> Lanjut ke WhatsApp
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Bidang Usaha</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-briefcase absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" id="business-type" placeholder="Misal: Retail, F&B, Jasa" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full mt-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-green-500/30 transition flex items-center justify-center gap-2 group">
+                        <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i> 
+                        <span>Lanjut ke WhatsApp</span>
                     </button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT LOGIKA MODAL & WHATSAPP -->
     <script>
         let selectedPackage = '';
         const modal = document.getElementById('order-modal');
@@ -179,23 +187,19 @@
             selectedPackage = pkg;
             document.getElementById('package-name-display').innerText = pkg;
             
-            // Tampilkan modal dengan animasi
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
-            // Trigger reflow untuk animasi smooth
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
                 modalContent.classList.add('scale-100');
             }, 10);
             
-            // Kunci scroll halaman agar fokus di modal
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            // Animasi sembunyi
             modal.classList.add('opacity-0');
             modalContent.classList.remove('scale-100');
             modalContent.classList.add('scale-95');
@@ -203,11 +207,10 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-                document.body.style.overflow = 'auto'; // Kembalikan scroll
+                document.body.style.overflow = 'auto';
             }, 300);
         }
 
-        // Tutup modal jika user mengklik area gelap di luar form
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal();
@@ -215,18 +218,14 @@
         });
 
         function submitOrder(event) {
-            event.preventDefault(); // Mencegah form memuat ulang halaman
+            event.preventDefault(); 
             
-            // Mengambil input dari form
             const name = document.getElementById('customer-name').value;
             const business = document.getElementById('business-name').value;
             const type = document.getElementById('business-type').value;
 
-            // Merangkai template pesan otomatis
             const message = `Halo Tim Acosys,\n\nSaya tertarik untuk konsultasi dan berlangganan *Acosys V8 Online Paket ${selectedPackage}*.\n\nBerikut adalah data bisnis saya:\n- *Nama Lengkap:* ${name}\n- *Nama Bisnis:* ${business}\n- *Bidang Usaha:* ${type}\n\nMohon informasi mengenai langkah selanjutnya untuk pendaftaran akun.\n\nTerima kasih.`;
 
-            // ===== KONFIGURASI GOOGLE SPREADSHEET =====
-            // Ganti URL di bawah ini dengan URL hasil deploy Apps Script Anda
             const scriptURL = 'https://script.google.com/macros/s/AKfycby87eglOFVARiXCV3cv584get5HoM2OjY7T1bH_BCRccNBDd1fXOFhwPnOakNOS0_NR/exec'; 
             
             const formData = new FormData();
@@ -236,36 +235,54 @@
             formData.append('tipe', type);
             formData.append('waktu', new Date().toLocaleString('id-ID'));
 
-            // Tampilkan status loading pada tombol
             const submitBtn = event.target.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan data...';
+            
+            // Animasi loading pada tombol
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-xl"></i> <span>Menyimpan data...</span>';
+            submitBtn.classList.replace('bg-green-500', 'bg-green-600');
             submitBtn.disabled = true;
 
-            // Mengirim data menggunakan Fetch API (tanpa redirect browser)
             fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
                 .then(response => {
-                    // Setelah data berhasil terkirim ke Sheet, buka WhatsApp
                     const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
                     window.open(waUrl, '_blank');
                     
-                    // Kembalikan form seperti semula
                     submitBtn.innerHTML = originalBtnText;
+                    submitBtn.classList.replace('bg-green-600', 'bg-green-500');
                     submitBtn.disabled = false;
                     closeModal();
                     event.target.reset(); 
                 })
                 .catch(error => {
                     console.error('Error saat menyimpan ke sheet!', error.message);
-                    // Fallback: Jika gagal menyimpan ke sheet, tetap izinkan user buka WhatsApp
                     const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
                     window.open(waUrl, '_blank');
                     
                     submitBtn.innerHTML = originalBtnText;
+                    submitBtn.classList.replace('bg-green-600', 'bg-green-500');
                     submitBtn.disabled = false;
                     closeModal();
                 });
         }
+
+        // Logic efek scroll animasi
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger animasi awal
+        setTimeout(revealOnScroll, 100); 
     </script>
 </body>
 </html>
