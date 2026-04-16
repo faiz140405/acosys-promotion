@@ -27,6 +27,7 @@
                     animation: {
                         'float': 'float 3s ease-in-out infinite',
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -45,7 +46,6 @@
     <style>
         .float-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .float-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04); }
-        .pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         
         /* Utility for Scroll Animation */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
@@ -54,6 +54,7 @@
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased overflow-x-hidden">
 
+    <!-- URGENCY BANNER -->
     <div class="bg-gradient-to-r from-red-600 to-red-500 text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 z-50 relative shadow-md">
         <div class="flex items-center gap-2">
             <i class="fa-solid fa-fire animate-pulse text-yellow-300"></i>
@@ -61,6 +62,7 @@
         </div>
     </div>
 
+    <!-- HERO SECTION -->
     <section class="relative pt-16 md:pt-24 pb-20 md:pb-32 overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
             <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-100 blur-3xl opacity-60"></div>
@@ -91,17 +93,18 @@
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 px-4 sm:px-0">
-                <button onclick="openModal('PRO')" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                    Mulai Sekarang <i class="fa-solid fa-arrow-right"></i>
+                <button onclick="document.getElementById('harga').scrollIntoView({behavior: 'smooth'})" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    Lihat Paket Harga <i class="fa-solid fa-arrow-down"></i>
                 </button>
             </div>
         </div>
     </section>
 
+    <!-- PROBLEM SECTION -->
     <section id="masalah" class="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-brand-600 font-bold tracking-wider uppercase text-xs md:text-sm mb-3">Masalah Umum Bisnis</h2>
+                <h2 class="text-red-500 font-bold tracking-wider uppercase text-xs md:text-sm mb-3">Masalah Umum Bisnis</h2>
                 <h3 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">Masih Pusing Urusan Pembukuan?</h3>
                 <p class="text-base md:text-lg text-gray-600">Jangan biarkan energi terkuras untuk urusan administrasi yang berantakan.</p>
             </div>
@@ -132,11 +135,216 @@
         </div>
     </section>
 
+    <!-- SOLUTION & FEATURES SECTION -->
+    <section id="fitur" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-bold tracking-wider uppercase text-xs md:text-sm mb-3">Solusi Cerdas</h2>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">Semua Fitur dalam Satu Aplikasi</h3>
+                <p class="text-base md:text-lg text-gray-600">Acosys V8 Online dirancang untuk mempercepat alur kerja dan mengamankan data bisnis Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">100% Cloud Base</h4>
+                    <p class="text-sm text-gray-600">Akses data bisnis Anda dari mana saja dan perangkat apa saja secara real-time.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                        <i class="fa-solid fa-cash-register"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Kasir (POS) Pintar</h4>
+                    <p class="text-sm text-gray-600">Transaksi cepat, support barcode, dan langsung memotong stok gudang otomatis.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Laporan Instan</h4>
+                    <p class="text-sm text-gray-600">Buku besar, neraca, hingga laba rugi tersusun otomatis tanpa perlu entry dua kali.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Multi Cabang</h4>
+                    <p class="text-sm text-gray-600">Kelola banyak toko atau gudang dalam satu dashboard. Pantau stok antar cabang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="harga" class="py-16 md:py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-bold tracking-wider uppercase text-xs md:text-sm mb-3">Pilihan Paket Acosys V8</h2>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">Pilih Sesuai Kebutuhan Anda</h3>
+                <p class="text-base md:text-lg text-gray-600">Solusi cerdas akuntansi untuk segala jenis bisnis dengan harga yang transparan.</p>
+            </div>
+
+            <!-- Pricing Grid (4 Columns) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start reveal">
+                
+                <!-- 1. Paket LITE (Paling Populer) -->
+                <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-2xl border-2 border-brand-500 transform md:-translate-y-4 relative z-10 flex flex-col h-full">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-star"></i> Paling Populer
+                    </div>
+                    
+                    <div class="text-center mb-6 mt-2 border-b border-gray-100 pb-6">
+                        <h4 class="text-2xl font-black text-brand-600 mb-1">LITE</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABD)</span>
+                    </div>
+                    
+                    <div class="mb-2 text-center">
+                        <span class="text-3xl font-extrabold text-gray-900">Rp149.000</span><span class="text-gray-500 text-sm">/bln</span>
+                    </div>
+                    <p class="text-sm text-green-600 font-bold mb-6 text-center">Atau Rp1.500.000/tahun</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm text-gray-700 flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-0.5"></i> <span><strong>2 User</strong> Acosys</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-0.5"></i> <span>Server: 2GB SSD, 1GB RAM, 1 Core CPU, 1 DB</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-0.5"></i> <span>Kontrol Stok Barang</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-0.5"></i> <span>Point Of Sale</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-500 mt-0.5"></i> <span>Accounting</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal('LITE')" class="w-full mt-auto py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base shadow-lg shadow-brand-500/40 hover:bg-brand-700 transition transform hover:-translate-y-1">
+                        Pilih Paket LITE
+                    </button>
+                </div>
+
+                <!-- 2. Paket BASIC -->
+                <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
+                    <div class="text-center mb-6 border-b border-gray-100 pb-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">BASIC</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABCDEFG)</span>
+                    </div>
+                    
+                    <div class="mb-2 text-center">
+                        <span class="text-3xl font-extrabold text-gray-900">Rp199.000</span><span class="text-gray-500 text-sm">/bln</span>
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium mb-6 text-center">Atau Rp2.000.000/tahun</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span><strong>2 User</strong> Acosys</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span>Server: 2GB SSD, 1GB RAM, 1 Core CPU, 1 DB</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span>Semua Fitur Paket LITE</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Hutang Piutang</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Aturan Level Harga</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Salesman</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Point & Hadiah</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal('BASIC')" class="w-full mt-auto py-3 rounded-xl border border-brand-500 text-brand-600 font-bold hover:bg-brand-50 transition">
+                        Pilih BASIC
+                    </button>
+                </div>
+
+                <!-- 3. Paket PRO -->
+                <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
+                    <div class="text-center mb-6 border-b border-gray-100 pb-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">PRO</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABCDEGIV)</span>
+                    </div>
+                    
+                    <div class="mb-2 text-center">
+                        <span class="text-3xl font-extrabold text-gray-900">Rp399.000</span><span class="text-gray-500 text-sm">/bln</span>
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium mb-6 text-center">Atau Rp4.000.000/tahun</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span><strong>2 User</strong> Acosys</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span>Server: 2GB SSD, 1GB RAM, 1 Core CPU, 1 DB</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span>Semua Fitur Paket BASIC</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Multi Divisi</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Analisa Data</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal('PRO')" class="w-full mt-auto py-3 rounded-xl border border-brand-500 text-brand-600 font-bold hover:bg-brand-50 transition">
+                        Pilih PRO
+                    </button>
+                </div>
+
+                <!-- 4. Paket EXPERT -->
+                <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
+                    <div class="text-center mb-6 border-b border-gray-100 pb-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">EXPERT</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABCDEGUV)</span>
+                    </div>
+                    
+                    <div class="mb-2 text-center">
+                        <span class="text-3xl font-extrabold text-gray-900">Rp599.000</span><span class="text-gray-500 text-sm">/bln</span>
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium mb-6 text-center">Atau Rp6.000.000/tahun</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span><strong>2 User</strong> Acosys</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span>Server: 2GB SSD, 1GB RAM, 1 Core CPU, 1 DB</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5"></i> <span>Semua Fitur Paket PRO</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-plus text-brand-500 mt-0.5"></i> <span class="font-medium text-gray-800">Multi Departemen</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal('EXPERT')" class="w-full mt-auto py-3 rounded-xl border border-brand-500 text-brand-600 font-bold hover:bg-brand-50 transition">
+                        Pilih EXPERT
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Terms and Conditions Note -->
+            <div class="mt-12 text-center reveal">
+                <div class="inline-block bg-white p-6 rounded-2xl shadow-sm border border-gray-200 max-w-3xl text-sm text-gray-500 text-left">
+                    <h5 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-circle-info text-brand-500"></i> Informasi Penting:</h5>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Semua paket bisa ditambah user dengan biaya <strong>Rp25.000/user/bulan</strong> atau <strong>Rp300.000/user/tahun</strong>.</li>
+                        <li>Harga di atas merupakan biaya per-aktivasi aplikasi (belum termasuk biaya pelatihan, instalasi, konversi data, dan akomodasi).</li>
+                        <li><em>Upgrade</em> dari Acosys V4 ke V8 mendapatkan diskon 25% dari total harga.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="py-16 md:py-20 bg-brand-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-brand-500 blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 reveal">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Jangan Tunda Kesuksesan Bisnis Anda</h2>
+            <p class="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">Lebih dari 85.000 bisnis telah membuktikan efisiensi Acosys V8 Online. Sekarang giliran Anda.</p>
+            <button onclick="openModal('LITE')" class="bg-white text-brand-700 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-50 transition transform hover:-translate-y-1">
+                Daftar Sekarang & Dapatkan Diskon
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 text-sm text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center items-center gap-2 mb-6">
+                <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">A</div>
+                <span class="font-black text-xl text-white tracking-tight">Acosys<span class="text-brand-500">V8</span></span>
+            </div>
+            <p class="mb-4">Solusi Cerdas Manajemen Bisnis & Keuangan Era Digital.</p>
+            <p>&copy; 2024 Acosys V8 Online. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/62811791078?text=Halo%20Tim%20Acosys,%20saya%20ingin%20konsultasi" target="_blank" 
-       class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-2xl hover:bg-green-600 transition-colors z-40 pulse-slow group">
+       class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-2xl hover:bg-green-600 transition-colors z-40 animate-pulse-slow group">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <!-- FORM MODAL PEMESANAN -->
     <div id="order-modal" class="fixed inset-0 z-[60] bg-gray-900/70 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
             <div class="bg-brand-600 p-5 text-white flex justify-between items-center sticky top-0 z-10">
@@ -178,6 +386,7 @@
         </div>
     </div>
 
+    <!-- SCRIPT LOGIKA MODAL & WHATSAPP -->
     <script>
         let selectedPackage = '';
         const modal = document.getElementById('order-modal');
