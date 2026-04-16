@@ -758,7 +758,7 @@
             const message = `Halo Tim Acosys,\n\nSaya telah melakukan pemesanan via *QRIS* untuk:\n\n*Paket:* ${selectedPackage}\n*Total Tagihan:* ${formatRp(finalTotal)}\n\n*Data Pemesan:*\n- Nama: ${name}\n- Email: ${email}\n- WA: ${wa}\n- Referral: ${ref ? ref : '-'}\n\nBerikut saya lampirkan bukti transfer pembayaran QRIS saya. Mohon segera diproses.`;
 
             // Google Apps Script URL (Biarkan sesuai milik Anda)
-            const scriptURL = 'https://script.google.com/macros/s/AKfycby87eglOFVARiXCV3cv584get5HoM2OjY7T1bH_BCRccNBDd1fXOFhwPnOakNOS0_NR/exec'; 
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbza6FPsBawF5Dnp6rXuVFGor1-ufPNDbEvKLlH303sddXUfzvLVJboNssBY_UFFk4Js/exec'; 
             
             const formData = new FormData();
             formData.append('paket', selectedPackage);
