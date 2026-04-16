@@ -19,10 +19,23 @@
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
                     colors: {
+                        // Palet disesuaikan dengan Logo: Merah-Oranye & Kuning
                         brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6',
-                            600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                            50: '#fff5f1',
+                            100: '#ffe9df',
+                            500: '#ff5e29',
+                            600: '#f0430a', // Primary Orange/Red
+                            700: '#c83302',
+                            900: '#7c2206',
                         },
+                        accent: {
+                            400: '#ffcd1a',
+                            500: '#f5b500', // Yellow
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a', // Dark Navy untuk kontras
+                        }
                     },
                     animation: {
                         'float': 'float 3s ease-in-out infinite',
@@ -45,7 +58,8 @@
     </script>
     <style>
         .float-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .float-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04); }
+        /* Mengubah warna shadow hover menjadi oranye */
+        .float-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(240, 67, 10, 0.15), 0 10px 10px -5px rgba(240, 67, 10, 0.05); }
         
         /* Utility for Scroll Animation */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
@@ -54,10 +68,10 @@
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased overflow-x-hidden">
 
-    <!-- URGENCY BANNER -->
-    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 z-50 relative shadow-md">
+    <!-- URGENCY BANNER (Dark Navy kontras dengan teks Kuning) -->
+    <div class="bg-navy-900 border-b border-brand-500 text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 z-50 relative shadow-md">
         <div class="flex items-center gap-2">
-            <i class="fa-solid fa-fire animate-pulse text-yellow-300"></i>
+            <i class="fa-solid fa-fire animate-pulse text-accent-500"></i>
             <strong>Promo Terbatas:</strong> Diskon 20% Langganan Tahunan!
         </div>
     </div>
@@ -66,19 +80,21 @@
     <section class="relative pt-16 md:pt-24 pb-20 md:pb-32 overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
             <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-100 blur-3xl opacity-60"></div>
-            <div class="absolute top-1/2 -left-24 w-72 h-72 rounded-full bg-blue-100 blur-3xl opacity-60"></div>
+            <div class="absolute top-1/2 -left-24 w-72 h-72 rounded-full bg-accent-400 blur-3xl opacity-20"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center reveal active">
+            
+            <!-- LOGO ACOSYS (Diganti dengan Image) -->
             <div class="flex justify-center items-center mb-8">
                 <img 
                     src="acosys.png" 
                     alt="Logo Acosys V8"
-                    class="h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-lg hover:scale-105 transition"
+                    class="h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-lg hover:scale-105 transition duration-300"
                 >
             </div>
 
-            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-blue-100 shadow-sm text-brand-700 font-semibold text-xs md:text-sm mb-8 animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-brand-100 shadow-sm text-brand-700 font-semibold text-xs md:text-sm mb-8 animate-fade-in-up">
                 <span class="relative flex h-2.5 w-2.5">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-600"></span>
@@ -88,7 +104,7 @@
             
             <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.15] mb-6 max-w-5xl mx-auto">
                 Kelola Keuangan & Operasional Bisnis <br class="hidden md:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">Lebih Mudah, Cepat & Akurat</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent-500">Lebih Mudah, Cepat & Akurat</span>
             </h1>
             
             <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-600 mb-10 leading-relaxed px-4">
@@ -107,28 +123,28 @@
     <section id="masalah" class="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-red-500 font-bold tracking-wider uppercase text-xs md:text-sm mb-3">Masalah Umum Bisnis</h2>
+                <h2 class="text-brand-600 font-bold tracking-wider uppercase text-xs md:text-sm mb-3">Masalah Umum Bisnis</h2>
                 <h3 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">Masih Pusing Urusan Pembukuan?</h3>
                 <p class="text-base md:text-lg text-gray-600">Jangan biarkan energi terkuras untuk urusan administrasi yang berantakan.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 float-hover group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-red-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-book-journal-whills"></i>
                     </div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Pembukuan Manual</h4>
                     <p class="text-gray-600 leading-relaxed text-sm">Mencatat di buku atau Excel memakan waktu berjam-jam dan sangat rawan <em>human error</em>.</p>
                 </div>
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 float-hover group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-red-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-boxes-stacked"></i>
                     </div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Stok Tidak Terkontrol</h4>
                     <p class="text-gray-600 leading-relaxed text-sm">Sering selisih barang fisik dan catatan. Sulit melacak pergerakan inventory dan barang hilang.</p>
                 </div>
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 float-hover group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-red-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Laporan Berantakan</h4>
@@ -149,28 +165,28 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
                 <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
-                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent-500 text-xl mb-4">
                         <i class="fa-solid fa-cloud"></i>
                     </div>
                     <h4 class="text-lg font-bold text-gray-900 mb-2">100% Cloud Base</h4>
                     <p class="text-sm text-gray-600">Akses data bisnis Anda dari mana saja dan perangkat apa saja secara real-time.</p>
                 </div>
                 <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
-                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent-500 text-xl mb-4">
                         <i class="fa-solid fa-cash-register"></i>
                     </div>
                     <h4 class="text-lg font-bold text-gray-900 mb-2">Kasir (POS) Pintar</h4>
                     <p class="text-sm text-gray-600">Transaksi cepat, support barcode, dan langsung memotong stok gudang otomatis.</p>
                 </div>
                 <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
-                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent-500 text-xl mb-4">
                         <i class="fa-solid fa-file-invoice-dollar"></i>
                     </div>
                     <h4 class="text-lg font-bold text-gray-900 mb-2">Laporan Instan</h4>
                     <p class="text-sm text-gray-600">Buku besar, neraca, hingga laba rugi tersusun otomatis tanpa perlu entry dua kali.</p>
                 </div>
                 <div class="p-6 rounded-3xl bg-brand-50 border border-brand-100 hover:bg-brand-100 transition-colors">
-                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 text-xl mb-4">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent-500 text-xl mb-4">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <h4 class="text-lg font-bold text-gray-900 mb-2">Multi Cabang</h4>
@@ -194,7 +210,7 @@
                 
                 <!-- 1. Paket LITE (Paling Populer) -->
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-2xl border-2 border-brand-500 transform md:-translate-y-4 relative z-10 flex flex-col h-full">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 whitespace-nowrap">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-accent-400 to-accent-500 text-navy-900 px-6 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg flex items-center gap-2 whitespace-nowrap">
                         <i class="fa-solid fa-star animate-pulse"></i> Paling Populer
                     </div>
                     
@@ -297,7 +313,7 @@
 
             <!-- Terms and Conditions Note -->
             <div class="mt-12 text-center reveal">
-                <div class="inline-block bg-white p-6 rounded-2xl shadow-sm border border-gray-200 max-w-3xl text-sm text-gray-500 text-left">
+                <div class="inline-block bg-white p-6 rounded-2xl shadow-sm border border-brand-100 max-w-3xl text-sm text-gray-500 text-left">
                     <h5 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-circle-info text-brand-500"></i> Informasi Penting:</h5>
                     <ul class="list-disc pl-5 space-y-1">
                         <li>Semua paket bisa ditambah user dengan biaya <strong>Rp25.000/user/bulan</strong> atau <strong>Rp300.000/user/tahun</strong>.</li>
@@ -310,20 +326,36 @@
         </div>
     </section>
 
-    <!-- FINAL CTA SECTION -->
-    <section class="py-16 md:py-20 bg-brand-900 relative overflow-hidden">
+    <!-- FINAL CTA SECTION (Menggunakan Navy 900 kontras dengan Button Brand) -->
+    <section class="py-16 md:py-20 bg-navy-900 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white blur-3xl"></div>
             <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-brand-500 blur-3xl"></div>
         </div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10 reveal">
             <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Jangan Tunda Kesuksesan Bisnis Anda</h2>
-            <p class="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">Lebih dari 85.000 bisnis telah membuktikan efisiensi Acosys V8 Online. Sekarang giliran Anda.</p>
-            <button onclick="openModal('LITE')" class="bg-white text-brand-700 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-50 transition transform hover:-translate-y-1">
+            <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">Lebih dari 85.000 bisnis telah membuktikan efisiensi Acosys V8 Online. Sekarang giliran Anda.</p>
+            <button onclick="openModal('LITE')" class="bg-brand-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-brand-500/50 hover:bg-brand-500 transition transform hover:-translate-y-1">
                 Daftar Sekarang & Dapatkan Diskon
             </button>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 text-sm text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- LOGO FOOTER -->
+            <div class="flex justify-center items-center mb-6">
+                <img 
+                    src="acosys.png" 
+                    alt="Logo Acosys"
+                    class="h-10 w-auto object-contain opacity-75 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0"
+                >
+            </div>
+            <p class="mb-4">Solusi Cerdas Manajemen Bisnis & Keuangan Era Digital.</p>
+            <p>&copy; 2024 Acosys V8 Online. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/62811791078?text=Halo%20Tim%20Acosys,%20saya%20ingin%20konsultasi" target="_blank" 
@@ -332,10 +364,10 @@
     </a>
 
     <!-- FORM MODAL PEMESANAN -->
-    <div id="order-modal" class="fixed inset-0 z-[60] bg-gray-900/70 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div id="order-modal" class="fixed inset-0 z-[60] bg-navy-900/80 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
             <div class="bg-brand-600 p-5 text-white flex justify-between items-center sticky top-0 z-10">
-                <h3 class="font-semibold text-lg">Pesan Paket <span id="package-name-display" class="text-yellow-300 font-bold"></span></h3>
+                <h3 class="font-semibold text-lg">Pesan Paket <span id="package-name-display" class="text-accent-400 font-bold drop-shadow-md"></span></h3>
                 <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition" aria-label="Tutup Form">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
