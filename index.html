@@ -19,22 +19,26 @@
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
                     colors: {
-                        // Palet disesuaikan dengan Logo: Merah-Oranye & Kuning
                         brand: {
                             50: '#fff5f1',
                             100: '#ffe9df',
                             500: '#ff5e29',
-                            600: '#f0430a', // Primary Orange/Red
+                            600: '#f0430a',
                             700: '#c83302',
                             900: '#7c2206',
                         },
                         accent: {
                             400: '#ffcd1a',
-                            500: '#f5b500', // Yellow
+                            500: '#f5b500',
                         },
                         navy: {
                             800: '#1e293b',
-                            900: '#0f172a', // Dark Navy untuk kontras
+                            900: '#0f172a',
+                        },
+                        // Warna hijau khusus untuk form checkout
+                        checkout: {
+                            500: '#10b981',
+                            600: '#059669',
                         }
                     },
                     animation: {
@@ -58,17 +62,21 @@
     </script>
     <style>
         .float-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        /* Mengubah warna shadow hover menjadi oranye */
         .float-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(240, 67, 10, 0.15), 0 10px 10px -5px rgba(240, 67, 10, 0.05); }
         
-        /* Utility for Scroll Animation */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Custom Scrollbar for Modal */
+        .modal-scroll::-webkit-scrollbar { width: 6px; }
+        .modal-scroll::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px; }
+        .modal-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .modal-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased overflow-x-hidden">
 
-    <!-- URGENCY BANNER (Dark Navy kontras dengan teks Kuning) -->
+    <!-- URGENCY BANNER -->
     <div class="bg-navy-900 border-b border-brand-500 text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 z-50 relative shadow-md">
         <div class="flex items-center gap-2">
             <i class="fa-solid fa-fire animate-pulse text-accent-500"></i>
@@ -85,7 +93,6 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center reveal active">
             
-            <!-- LOGO ACOSYS (Diganti dengan Image) -->
             <div class="flex justify-center items-center mb-8">
                 <img 
                     src="acosys.png" 
@@ -216,6 +223,7 @@
                     
                     <div class="text-center mb-6 mt-2 border-b border-gray-100 pb-6">
                         <h4 class="text-2xl font-black text-brand-600 mb-1">LITE</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABD)</span>
                     </div>
                     
                     <div class="mb-2 text-center">
@@ -240,6 +248,7 @@
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
                     <div class="text-center mb-6 border-b border-gray-100 pb-6">
                         <h4 class="text-xl font-bold text-gray-900 mb-1">BASIC</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABCDEFG)</span>
                     </div>
                     
                     <div class="mb-2 text-center">
@@ -266,6 +275,7 @@
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
                     <div class="text-center mb-6 border-b border-gray-100 pb-6">
                         <h4 class="text-xl font-bold text-gray-900 mb-1">PRO</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABCDEGIV)</span>
                     </div>
                     
                     <div class="mb-2 text-center">
@@ -290,6 +300,7 @@
                 <div class="bg-white rounded-3xl p-6 xl:p-8 shadow-sm border border-gray-100 float-hover flex flex-col h-full">
                     <div class="text-center mb-6 border-b border-gray-100 pb-6">
                         <h4 class="text-xl font-bold text-gray-900 mb-1">EXPERT</h4>
+                        <span class="text-xs font-bold text-gray-400 uppercase">(ABCDEGUV)</span>
                     </div>
                     
                     <div class="mb-2 text-center">
@@ -311,7 +322,6 @@
 
             </div>
 
-            <!-- Terms and Conditions Note -->
             <div class="mt-12 text-center reveal">
                 <div class="inline-block bg-white p-6 rounded-2xl shadow-sm border border-brand-100 max-w-3xl text-sm text-gray-500 text-left">
                     <h5 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-circle-info text-brand-500"></i> Informasi Penting:</h5>
@@ -322,11 +332,10 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- FINAL CTA SECTION (Menggunakan Navy 900 kontras dengan Button Brand) -->
+    <!-- FINAL CTA SECTION -->
     <section class="py-16 md:py-20 bg-navy-900 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white blur-3xl"></div>
@@ -344,7 +353,6 @@
     <!-- FOOTER -->
     <footer class="bg-gray-900 text-gray-400 py-12 text-sm text-center border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4">
-            <!-- LOGO FOOTER -->
             <div class="flex justify-center items-center mb-6">
                 <img 
                     src="acosys.png" 
@@ -359,79 +367,293 @@
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/62811791078?text=Halo%20Tim%20Acosys,%20saya%20ingin%20konsultasi" target="_blank" 
-       class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-2xl hover:bg-green-600 transition-colors z-40 animate-pulse-slow group">
+       class="fixed bottom-6 right-6 bg-checkout-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-2xl hover:bg-checkout-600 transition-colors z-40 animate-pulse-slow group">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- FORM MODAL PEMESANAN -->
+    <!-- NEW ORDER MODAL (2-COLUMN CHECKOUT) -->
     <div id="order-modal" class="fixed inset-0 z-[60] bg-navy-900/80 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
-            <div class="bg-brand-600 p-5 text-white flex justify-between items-center sticky top-0 z-10">
-                <h3 class="font-semibold text-lg">Pesan Paket <span id="package-name-display" class="text-accent-400 font-bold drop-shadow-md"></span></h3>
-                <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition" aria-label="Tutup Form">
+        
+        <!-- Main Form Container -->
+        <div class="bg-white rounded-3xl w-full max-w-5xl flex flex-col md:flex-row overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[95vh] modal-scroll" id="modal-content">
+            
+            <!-- Close Button (Mobile Absolute) -->
+            <button onclick="closeModal()" class="md:hidden absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition text-gray-600 shadow-sm" aria-label="Tutup Form">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- LEFT SIDE: Product Info & Testimonial (Hidden on small screens) -->
+            <div class="bg-gray-50 md:w-1/2 hidden md:flex flex-col border-r border-gray-200 overflow-y-auto modal-scroll p-8">
+                <div class="mb-8">
+                    <h3 class="text-3xl font-extrabold text-gray-900 leading-tight mb-3">Akses <span class="text-brand-600">Acosys V8 Online</span> Sekarang</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Hitung profit dan kelola bisnis jadi sangat gampang. Pilih paket Anda, bayar, dan langsung gunakan ekosistem pembukuan cloud kami.
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-gray-900 mb-4 text-lg">Apa Kata Mereka?</h4>
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-4 relative">
+                        <i class="fa-solid fa-quote-left absolute top-4 right-4 text-gray-100 text-3xl"></i>
+                        <p class="text-gray-600 text-xs italic leading-relaxed mb-3">
+                            "Baru ngeh ada sistem se-simple ini buat ngitung profitabilitas toko. Tinggal masukin transaksi kasir, langsung keliatan HPP dan profitnya berapa. Sangat rekomen!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">BS</div>
+                            <div>
+                                <p class="text-xs font-bold text-gray-900">Budi Santoso</p>
+                                <p class="text-[10px] text-gray-500">UMKM Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-left absolute top-4 right-4 text-gray-100 text-3xl"></i>
+                        <p class="text-gray-600 text-xs italic leading-relaxed mb-3">
+                            "Dulu pusing rekap penjualan manual beda cabang. Sekarang semua data sinkron real-time pakai Acosys. Laporan akhir bulan jadi dalam hitungan detik."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">SA</div>
+                            <div>
+                                <p class="text-xs font-bold text-gray-900">Siti Aisyah</p>
+                                <p class="text-[10px] text-gray-500">Owner Retail Hijab</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-3 text-sm">Cocok Untuk Anda Jika...</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-checkout-100 rounded-full flex items-center justify-center text-checkout-600 mt-0.5 flex-shrink-0 text-[10px]"><i class="fa-solid fa-store"></i></div>
+                            <p class="text-xs text-gray-600"><strong class="text-gray-800">Pengusaha Retail & Grosir</strong> yang butuh rekap stok dan penjualan sinkron otomatis.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-checkout-100 rounded-full flex items-center justify-center text-checkout-600 mt-0.5 flex-shrink-0 text-[10px]"><i class="fa-solid fa-box-open"></i></div>
+                            <p class="text-xs text-gray-600"><strong class="text-gray-800">Distributor</strong> untuk memastikan kontrol gudang, HPP, dan performa salesman rapi.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: Stepper Form Checkout -->
+            <div class="md:w-1/2 w-full p-6 md:p-8 relative bg-white flex flex-col h-[90vh] md:h-auto overflow-y-auto modal-scroll">
+                
+                <!-- Close Button Desktop -->
+                <button onclick="closeModal()" class="hidden md:flex absolute top-4 right-4 w-8 h-8 items-center justify-center rounded-full bg-gray-50 hover:bg-gray-100 transition text-gray-500" aria-label="Tutup Form">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-500 text-sm mb-6">Isi form di bawah ini agar tim kami bisa segera membantu proses setup akun Anda.</p>
-                <form id="order-form" onsubmit="submitOrder(event)" class="space-y-5">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" id="customer-name" placeholder="Misal: Budi Santoso" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
+
+                <!-- STEPPER HEADER -->
+                <div class="flex items-center justify-center mb-8 px-2 md:px-8 mt-4 md:mt-0 relative">
+                    <!-- Line behind circles -->
+                    <div class="absolute left-[20%] right-[20%] top-4 h-0.5 bg-gray-200 -z-10" id="step-line"></div>
+                    
+                    <div class="flex flex-col items-center flex-1 z-10 bg-white">
+                        <div class="w-8 h-8 rounded-full bg-checkout-500 text-white flex items-center justify-center font-bold text-sm border-2 border-white shadow-sm" id="step-1-circle">
+                            1
+                        </div>
+                        <span class="text-[10px] sm:text-xs font-semibold text-checkout-500 mt-2 text-center" id="step-1-text">Detail Pemesan</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center flex-1 z-10 bg-white">
+                        <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm border-2 border-white" id="step-2-circle">
+                            2
+                        </div>
+                        <span class="text-[10px] sm:text-xs font-semibold text-gray-400 mt-2 text-center" id="step-2-text">Pembayaran</span>
+                    </div>
+                </div>
+
+                <form id="order-form" class="flex-1 flex flex-col">
+                    
+                    <!-- ================= STEP 1 CONTENT ================= -->
+                    <div id="step-1-content" class="flex-1 flex flex-col transition-opacity duration-300">
+                        <h4 class="font-bold text-xl text-gray-900 mb-1">Detail Pemesan</h4>
+                        <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-4">Pastikan data yang Anda masukkan sudah benar.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1.5">Nama Lengkap <span class="text-red-500">*</span></label>
+                                <input type="text" id="customer-name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-checkout-500 focus:bg-white focus:border-checkout-500 outline-none transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1.5">Alamat Email <span class="text-red-500">*</span></label>
+                                <input type="email" id="customer-email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-checkout-500 focus:bg-white focus:border-checkout-500 outline-none transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1.5">Nomor WhatsApp <span class="text-red-500">*</span></label>
+                                <input type="tel" id="customer-wa" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-checkout-500 focus:bg-white focus:border-checkout-500 outline-none transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1.5">Kode Referral (Opsional)</label>
+                                <input type="text" id="customer-ref" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-checkout-500 focus:bg-white focus:border-checkout-500 outline-none transition text-sm" placeholder="Kosongkan jika tidak ada">
+                            </div>
+                        </div>
+                        
+                        <button type="button" onclick="goToStep2()" class="w-full mt-auto bg-checkout-500 hover:bg-checkout-600 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-checkout-500/30 transition transform hover:-translate-y-0.5">
+                            Lanjutkan ke Pembayaran
+                        </button>
+                    </div>
+
+                    <!-- ================= STEP 2 CONTENT ================= -->
+                    <div id="step-2-content" class="hidden flex-1 flex flex-col transition-opacity duration-300">
+                        <h4 class="font-bold text-xl text-gray-900 mb-1">Pembayaran</h4>
+                        <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-4">Selesaikan pembayaran untuk mengaktifkan paket.</p>
+                        
+                        <!-- Order Summary -->
+                        <div class="bg-gray-50 border border-gray-100 rounded-2xl p-5 mb-6">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-gray-600 text-sm">Acosys Paket <span id="summary-pkg-name" class="font-bold text-brand-600 uppercase">LITE</span></span>
+                                <span class="font-semibold text-gray-900 text-sm" id="summary-base-price">Rp 149.000</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4 text-red-500 hidden" id="discount-row">
+                                <span class="text-sm">Diskon Voucher</span>
+                                <span class="font-semibold text-sm" id="summary-discount">- Rp 0</span>
+                            </div>
+                            <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                                <span class="font-bold text-gray-900">Total Harga</span>
+                                <span class="text-xl font-black text-checkout-600" id="summary-final-total">Rp 149.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Voucher Box (Mirip screenshot) -->
+                        <div class="mb-6 bg-checkout-50 border border-dashed border-checkout-400 rounded-2xl p-4">
+                            <h5 class="text-xs font-bold text-checkout-600 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-gift"></i> Punya Kode Voucher?
+                            </h5>
+                            <div class="flex gap-2">
+                                <input type="text" id="voucher-code" class="flex-1 px-3 py-2 bg-white border border-gray-200 rounded-lg focus:ring-1 focus:ring-checkout-500 outline-none text-sm uppercase" placeholder="Masukkan kode">
+                                <button type="button" onclick="applyVoucher()" class="bg-checkout-500 hover:bg-checkout-600 text-white px-4 py-2 rounded-lg font-bold text-sm transition">
+                                    Gunakan
+                                </button>
+                            </div>
+                            <p id="voucher-msg" class="text-xs font-medium mt-2 hidden"></p>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="mb-8">
+                            <label class="block text-xs font-semibold text-gray-700 mb-2">Metode Pembayaran</label>
+                            <div class="border-2 border-checkout-500 bg-white rounded-xl p-4 flex items-center justify-between cursor-pointer shadow-sm">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-checkout-50 rounded-lg flex items-center justify-center text-checkout-600 text-xl">
+                                        <i class="fa-solid fa-qrcode"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block font-bold text-gray-900 text-sm">QRIS (Otomatis)</span>
+                                        <span class="block text-xs text-gray-500 mt-0.5">Gopay, OVO, Dana, m-BCA, dll.</span>
+                                    </div>
+                                </div>
+                                <div class="w-5 h-5 rounded-full bg-checkout-500 text-white flex items-center justify-center text-[10px]">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3 mt-auto pt-4 border-t border-gray-100">
+                            <button type="button" onclick="goToStep1()" class="w-1/3 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold rounded-xl transition text-sm">
+                                Kembali
+                            </button>
+                            <button type="button" onclick="goToStep3()" class="w-2/3 py-3.5 bg-checkout-500 hover:bg-checkout-600 text-white font-bold rounded-xl shadow-lg transition flex justify-center items-center gap-2">
+                                <i class="fa-solid fa-lock"></i> Bayar Sekarang
+                            </button>
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Bisnis</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-store absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" id="business-name" placeholder="Misal: Maju Jaya Grosir" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
+
+                    <!-- ================= STEP 3 CONTENT (QRIS) ================= -->
+                    <div id="step-3-content" class="hidden flex-1 flex flex-col justify-center items-center text-center transition-opacity duration-300">
+                        <h4 class="font-bold text-2xl text-gray-900 mb-2">Scan Barcode QRIS</h4>
+                        <p class="text-sm text-gray-500 mb-6">Buka aplikasi E-Wallet atau M-Banking Anda (BCA, Mandiri, Gopay, OVO, dll), lalu scan QR di bawah ini.</p>
+                        
+                        <!-- Dummy QR Image Box -->
+                        <div class="p-6 bg-white border border-gray-200 rounded-3xl shadow-sm mb-6 inline-block">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 bg-gray-50 border-2 border-dashed border-gray-300 rounded-2xl flex flex-col items-center justify-center relative">
+                                <i class="fa-solid fa-qrcode text-8xl text-gray-300 mb-2"></i>
+                                <span class="bg-white px-3 py-1 rounded-md shadow border border-gray-100 text-xs font-bold text-brand-600 absolute">QRIS ACOSYS</span>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Bidang Usaha</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-briefcase absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" id="business-type" placeholder="Misal: Retail, F&B, Jasa" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition text-sm">
+                        
+                        <div class="mb-8">
+                            <p class="text-sm text-gray-500 mb-1">Total yang harus dibayar</p>
+                            <div class="text-2xl font-black text-checkout-600 bg-checkout-50 px-6 py-2 rounded-full inline-block" id="qris-final-total">Rp 149.000</div>
                         </div>
+
+                        <!-- Final Action to WhatsApp / Google Sheets -->
+                        <button type="button" onclick="submitFinalOrder(event)" id="btn-konfirmasi" class="w-full mt-auto py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-500/30 transition transform hover:-translate-y-1 flex justify-center items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Konfirmasi Pembayaran
+                        </button>
                     </div>
-                    <button type="submit" class="w-full mt-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-green-500/30 transition flex items-center justify-center gap-2 group">
-                        <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i> 
-                        <span>Lanjut ke WhatsApp</span>
-                    </button>
+
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT LOGIKA MODAL & WHATSAPP -->
+    <!-- SCRIPT LOGIKA CHECKOUT & HARGA -->
     <script>
+        // Data Harga Paket Acosys
+        const packagePrices = {
+            'LITE': 149000,
+            'BASIC': 199000,
+            'PRO': 399000,
+            'EXPERT': 599000
+        };
+
         let selectedPackage = '';
+        let basePrice = 0;
+        let discount = 0;
+        let finalTotal = 0;
+
         const modal = document.getElementById('order-modal');
         const modalContent = document.getElementById('modal-content');
 
+        // Form elements
+        const step1Content = document.getElementById('step-1-content');
+        const step2Content = document.getElementById('step-2-content');
+        const step3Content = document.getElementById('step-3-content');
+        const stepLine = document.getElementById('step-line');
+        const s1Circle = document.getElementById('step-1-circle');
+        const s1Text = document.getElementById('step-1-text');
+        const s2Circle = document.getElementById('step-2-circle');
+        const s2Text = document.getElementById('step-2-text');
+
+        // Formatter Rupiah
+        const formatRp = (num) => 'Rp ' + num.toLocaleString('id-ID');
+
         function openModal(pkg) {
             selectedPackage = pkg;
-            document.getElementById('package-name-display').innerText = pkg;
+            basePrice = packagePrices[pkg];
+            discount = 0;
+            finalTotal = basePrice;
             
+            // Set values to DOM
+            document.getElementById('summary-pkg-name').innerText = pkg;
+            document.getElementById('summary-base-price').innerText = formatRp(basePrice);
+            updateTotalDisplay();
+            
+            // Reset state
+            document.getElementById('order-form').reset();
+            document.getElementById('voucher-msg').classList.add('hidden');
+            document.getElementById('discount-row').classList.add('hidden');
+            
+            // Tampilkan Modal
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
                 modalContent.classList.add('scale-100');
             }, 10);
-            
             document.body.style.overflow = 'hidden';
+
+            goToStep1(true); // reset ke step 1
         }
 
         function closeModal() {
             modal.classList.add('opacity-0');
             modalContent.classList.remove('scale-100');
             modalContent.classList.add('scale-95');
-            
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
@@ -439,78 +661,133 @@
             }, 300);
         }
 
+        // Tutup modal klik di luar area
         modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
+            if (e.target === modal) closeModal();
         });
 
-        function submitOrder(event) {
+        function goToStep1(isReset = false) {
+            step2Content.classList.add('hidden');
+            step3Content.classList.add('hidden');
+            step1Content.classList.remove('hidden');
+
+            // Visual indicator step 1
+            stepLine.classList.replace('bg-checkout-500', 'bg-gray-200');
+            
+            s1Circle.classList.replace('bg-checkout-600', 'bg-checkout-500');
+            s1Circle.innerHTML = '1';
+            
+            s2Circle.classList.replace('bg-checkout-500', 'bg-gray-200');
+            s2Circle.classList.replace('text-white', 'text-gray-500');
+            s2Circle.classList.replace('border-checkout-500', 'border-white');
+            s2Text.classList.replace('text-checkout-500', 'text-gray-400');
+        }
+
+        function goToStep2() {
+            // Validasi Input Step 1
+            const name = document.getElementById('customer-name').value.trim();
+            const email = document.getElementById('customer-email').value.trim();
+            const wa = document.getElementById('customer-wa').value.trim();
+
+            if(!name || !email || !wa) {
+                alert('Mohon lengkapi Nama, Email, dan Nomor WhatsApp Anda.');
+                return;
+            }
+
+            step1Content.classList.add('hidden');
+            step3Content.classList.add('hidden');
+            step2Content.classList.remove('hidden');
+
+            // Visual indicator step 2 (Step 1 Completed)
+            stepLine.classList.replace('bg-gray-200', 'bg-checkout-500');
+            
+            s1Circle.classList.replace('bg-checkout-500', 'bg-checkout-600');
+            s1Circle.innerHTML = '<i class="fa-solid fa-check"></i>';
+            
+            s2Circle.classList.replace('bg-gray-200', 'bg-checkout-500');
+            s2Circle.classList.replace('text-gray-500', 'text-white');
+            s2Text.classList.replace('text-gray-400', 'text-checkout-500');
+        }
+
+        function goToStep3() {
+            // Tampilkan QRIS halaman
+            step1Content.classList.add('hidden');
+            step2Content.classList.add('hidden');
+            step3Content.classList.remove('hidden');
+
+            document.getElementById('qris-final-total').innerText = formatRp(finalTotal);
+        }
+
+        function applyVoucher() {
+            const code = document.getElementById('voucher-code').value.trim().toUpperCase();
+            const msgEl = document.getElementById('voucher-msg');
+            const discRow = document.getElementById('discount-row');
+
+            // Simulasi Kode Voucher "PROMO20" untuk diskon Rp 20.000
+            if(code === 'PROMO20') {
+                discount = 20000;
+                msgEl.innerText = "Voucher berhasil! Anda mendapat potongan Rp 20.000";
+                msgEl.className = "text-xs font-medium mt-2 text-checkout-600 block";
+                
+                document.getElementById('summary-discount').innerText = "- " + formatRp(discount);
+                discRow.classList.remove('hidden');
+            } else {
+                discount = 0;
+                msgEl.innerText = "Kode voucher tidak ditemukan atau tidak valid.";
+                msgEl.className = "text-xs font-medium mt-2 text-red-500 block";
+                discRow.classList.add('hidden');
+            }
+            updateTotalDisplay();
+        }
+
+        function updateTotalDisplay() {
+            finalTotal = basePrice - discount;
+            document.getElementById('summary-final-total').innerText = formatRp(finalTotal);
+        }
+
+        function submitFinalOrder(event) {
             event.preventDefault(); 
             
             const name = document.getElementById('customer-name').value;
-            const business = document.getElementById('business-name').value;
-            const type = document.getElementById('business-type').value;
+            const email = document.getElementById('customer-email').value;
+            const wa = document.getElementById('customer-wa').value;
+            const ref = document.getElementById('customer-ref').value;
 
-            const message = `Halo Tim Acosys,\n\nSaya tertarik untuk konsultasi dan berlangganan *Acosys V8 Online Paket ${selectedPackage}*.\n\nBerikut adalah data bisnis saya:\n- *Nama Lengkap:* ${name}\n- *Nama Bisnis:* ${business}\n- *Bidang Usaha:* ${type}\n\nMohon informasi mengenai langkah selanjutnya untuk pendaftaran akun.\n\nTerima kasih.`;
+            const message = `Halo Tim Acosys,\n\nSaya telah melakukan pemesanan via *QRIS* untuk:\n\n*Paket:* ${selectedPackage}\n*Total Tagihan:* ${formatRp(finalTotal)}\n\n*Data Pemesan:*\n- Nama: ${name}\n- Email: ${email}\n- WA: ${wa}\n- Referral: ${ref ? ref : '-'}\n\nBerikut saya lampirkan bukti transfer pembayaran QRIS saya. Mohon segera diproses.`;
 
+            // Google Apps Script URL (Biarkan sesuai milik Anda)
             const scriptURL = 'https://script.google.com/macros/s/AKfycby87eglOFVARiXCV3cv584get5HoM2OjY7T1bH_BCRccNBDd1fXOFhwPnOakNOS0_NR/exec'; 
             
             const formData = new FormData();
             formData.append('paket', selectedPackage);
             formData.append('nama', name);
-            formData.append('bisnis', business);
-            formData.append('tipe', type);
+            formData.append('email', email);
+            formData.append('wa', wa);
+            formData.append('referral', ref);
+            formData.append('total', finalTotal);
             formData.append('waktu', new Date().toLocaleString('id-ID'));
 
-            const submitBtn = event.target.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
+            const btnKonfirm = document.getElementById('btn-konfirmasi');
+            const originalBtnText = btnKonfirm.innerHTML;
             
-            // Animasi loading pada tombol
-            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-xl"></i> <span>Menyimpan data...</span>';
-            submitBtn.classList.replace('bg-green-500', 'bg-green-600');
-            submitBtn.disabled = true;
+            btnKonfirm.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-xl"></i> <span>Meneruskan ke WhatsApp...</span>';
+            btnKonfirm.disabled = true;
 
             fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
-                .then(response => {
-                    const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
-                    window.open(waUrl, '_blank');
-                    
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.classList.replace('bg-green-600', 'bg-green-500');
-                    submitBtn.disabled = false;
+                .then(() => {
+                    window.open(`https://wa.me/62811791078?text=${encodeURIComponent(message)}`, '_blank');
                     closeModal();
-                    event.target.reset(); 
+                    btnKonfirm.innerHTML = originalBtnText;
+                    btnKonfirm.disabled = false;
                 })
                 .catch(error => {
                     console.error('Error saat menyimpan ke sheet!', error.message);
-                    const waUrl = `https://wa.me/62811791078?text=${encodeURIComponent(message)}`;
-                    window.open(waUrl, '_blank');
-                    
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.classList.replace('bg-green-600', 'bg-green-500');
-                    submitBtn.disabled = false;
+                    window.open(`https://wa.me/62811791078?text=${encodeURIComponent(message)}`, '_blank');
                     closeModal();
+                    btnKonfirm.innerHTML = originalBtnText;
+                    btnKonfirm.disabled = false;
                 });
         }
-
-        // Logic efek scroll animasi
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-            const elementVisible = 100;
-
-            reveals.forEach((reveal) => {
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        // Trigger animasi awal
-        setTimeout(revealOnScroll, 100); 
     </script>
 </body>
 </html>
