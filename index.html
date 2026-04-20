@@ -781,6 +781,36 @@
                     btnKonfirm.disabled = false;
                 });
         }
+        
+        function downloadQR() {
+            const qrImage = document.getElementById('qris-img');
+            const imageSrc = qrImage.src;
+            
+            const fileName = 'qris.jpeg';
+
+            fetch(imageSrc)
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = fileName;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                })
+                .catch(() => {
+                    const a = document.createElement('a');
+                    a.href = imageSrc;
+                    a.download = fileName;
+                    a.target = '_blank';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                });
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
             const reveals = document.querySelectorAll(".reveal");
