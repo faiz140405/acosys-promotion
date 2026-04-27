@@ -739,48 +739,55 @@
             document.getElementById('summary-final-total').innerText = formatRp(finalTotal);
         }
 
-        function submitFinalOrder(event) {
-            event.preventDefault(); 
-            
-            const name = document.getElementById('customer-name').value;
-            const email = document.getElementById('customer-email').value;
-            const wa = document.getElementById('customer-wa').value;
-            const ref = document.getElementById('customer-ref').value;
+        <script>
+    // URL Web Apps Anda (Ganti dengan URL Web App yang Anda salin)
+    const scriptURL = 'https://script.google.com/macros/s/XXXXXX/exec'; // Ganti XXXXXX dengan URL Anda
 
-            const message = `Halo Tim Acosys,\n\nSaya telah melakukan pemesanan via *QRIS* untuk:\n\n*Paket:* ${selectedPackage}\n*Total Tagihan:* ${formatRp(finalTotal)}\n\n*Data Pemesan:*\n- Nama: ${name}\n- Email: ${email}\n- WA: ${wa}\n- Referral: ${ref ? ref : '-'}\n\nBerikut saya lampirkan bukti transfer pembayaran QRIS saya. Mohon segera diproses.`;
+    // Fungsi lain tetap sama...
 
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbza6FPsBawF5Dnp6rXuVFGor1-ufPNDbEvKLlH303sddXUfzvLVJboNssBY_UFFk4Js/exec'; 
-            
-            const formData = new FormData();
-            formData.append('paket', selectedPackage);
-            formData.append('nama', name);
-            formData.append('email', email);
-            formData.append('wa', wa);
-            formData.append('referral', ref);
-            formData.append('total', finalTotal);
-            formData.append('waktu', new Date().toLocaleString('id-ID'));
+    function submitFinalOrder(event) {
+        event.preventDefault(); 
+        const name = document.getElementById('customer-name').value;
+        const email = document.getElementById('customer-email').value;
+        const wa = document.getElementById('customer-wa').value;
+        const ref = document.getElementById('customer-ref').value;
 
-            const btnKonfirm = document.getElementById('btn-konfirmasi');
-            const originalBtnText = btnKonfirm.innerHTML;
-            
-            btnKonfirm.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-xl"></i> <span>Meneruskan ke WhatsApp...</span>';
-            btnKonfirm.disabled = true;
+        const message = `Halo Tim Acosys,\n\nSaya telah melakukan pemesanan via *QRIS* untuk:\n\n*Paket:* ${selectedPackage}\n*Total Tagihan:* ${formatRp(finalTotal)}\n\n*Data Pemesan:*\n- Nama: ${name}\n- Email: ${email}\n- WA: ${wa}\n- Referral: ${ref ? ref : '-'}\n\nBerikut saya lampirkan bukti transfer pembayaran QRIS saya. Mohon segera diproses.`;
 
-            fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
-                .then(() => {
-                    window.open(`https://wa.me/62811791078?text=${encodeURIComponent(message)}`, '_blank');
-                    closeModal();
-                    btnKonfirm.innerHTML = originalBtnText;
-                    btnKonfirm.disabled = false;
-                })
-                .catch(error => {
-                    console.error('Error saat menyimpan ke sheet!', error.message);
-                    window.open(`https://wa.me/62811791078?text=${encodeURIComponent(message)}`, '_blank');
-                    closeModal();
-                    btnKonfirm.innerHTML = originalBtnText;
-                    btnKonfirm.disabled = false;
-                });
-        }
+        // Pastikan URL ini sesuai URL Web App yang Anda salin
+        const scriptURL = 'https://script.google.com/macros/s/XXXXXX/exec'; // Ganti dengan URL Web App Anda
+
+        const formData = new FormData();
+        formData.append('paket', selectedPackage);
+        formData.append('nama', name);
+        formData.append('email', email);
+        formData.append('wa', wa);
+        formData.append('referral', ref);
+        formData.append('total', finalTotal);
+        formData.append('waktu', new Date().toLocaleString('id-ID'));
+
+        const btnKonfirm = document.getElementById('btn-konfirmasi');
+        const originalBtnText = btnKonfirm.innerHTML;
+        
+        btnKonfirm.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-xl"></i> <span>Meneruskan ke WhatsApp...</span>';
+        btnKonfirm.disabled = true;
+
+        fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+            .then(() => {
+                window.open(`https://wa.me/62811791078?text=${encodeURIComponent(message)}`, '_blank');
+                closeModal();
+                btnKonfirm.innerHTML = originalBtnText;
+                btnKonfirm.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error saat menyimpan ke sheet!', error.message);
+                window.open(`https://wa.me/62811791078?text=${encodeURIComponent(message)}`, '_blank');
+                closeModal();
+                btnKonfirm.innerHTML = originalBtnText;
+                btnKonfirm.disabled = false;
+            });
+    }
+</script>
         
         function downloadQR() {
             const qrImage = document.getElementById('qris-img');
